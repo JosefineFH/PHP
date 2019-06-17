@@ -1,0 +1,74 @@
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 0;
+}
+
+h2 {
+    font-size: 30px;
+    color: #324e7b;
+    margin-left: 20px;
+}
+
+p {
+    color: #004d61;
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+span {
+    color: darkgoldenrod;
+    margin-left: 20px;
+}
+
+textarea {
+    border-bottom: solid 1px #004d61;
+    font-size: 18px;
+    width: 300px;
+    margin-left: 15px;
+}
+
+.input {
+    border: none;
+    border-bottom: solid 1px #004d61;
+    font-size: 18px;
+    width: 250px;
+    margin-left: 20px;
+    margin: 10px 10ex;
+}
+
+button {
+    margin-top: 3%;
+    padding: 10px 24px;
+    font-size: 20px;
+    border: none;
+    background-color: #004d61;
+    border-radius: 2px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: white;
+    margin-left: 20px;
+}
+
+table {
+    margin-left: 20px;
+    margin-top: 3%;
+}
+
+th {
+    text-align: left;
+}
+
+td {
+    padding-left: 25px;
+}
+
+#navbar {
+    background-color: #324e7b;
+    height: 50px;
+    text-align: center;
+    color: aliceblue;
+    padding-top: 10px;
+}
+
+footer {
+    height: 30px;
+}
