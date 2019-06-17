@@ -7,7 +7,10 @@
 </head>
 
 <body>
-<nav id="navbar"> Web contact:</nav>
+
+<nav id="navbar"> 
+<h1 id="logo">Web contact:</h1>
+</nav>
     <?php
     // define variables and set to empty values
     $name = $email = $gender = $comment = $website = "";
