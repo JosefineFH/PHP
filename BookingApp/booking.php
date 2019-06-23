@@ -15,7 +15,12 @@
 </div>
 
 <div class="col2">
-<p> booking !</p>
+<?php
+include 'db/db_connection.php';
+$conn = OpenCon();
+echo "Connected Successfully";
+CloseCon($conn);
+?>
 </div>
 
 <div class="col3">
