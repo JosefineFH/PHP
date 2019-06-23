@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
+@media only screen and (max-width: 2000px) {
+    .grid-container {
+        display: grid;
+        grid-gap: 5px;
+        grid-template-columns: repeat(3, auto);
+        grid-template-rows: repeat(3, auto);
+    }
+    .col1 {
+        grid-column: 1 / 4;
+        grid-row: 1;
+        color: palevioletred;
+    }
+    .col2 {
+        grid-column: 1;
+        grid-row: 2;
+    }
+    .col3 {
+        grid-column: 2/4;
+        grid-row: 2;
+        margin-right: 10px;
+    }
+    .col4 {
+        height: 20px;
+        grid-column: 1/ 4;
+        grid-row: 3;
+    }
+    img {
+        height: 700px;
+        width: auto;
+        padding-left: 10px;
+    }
+    .nigthText {
+        background-color: #17223b;
+        font-size: 30px;
+        padding: 10px;
+        color: white;
+        width: 350px;
+        margin-left: 25%;
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        right: 0;
+        top: 35%;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+}
+
+
+/* Content Css */
+
+.col3 p {
+    font-size: 30px;
+    text-align: center;
+    margin-top: 30px;
+    margin-top: 20%;
+}
+
+.bookUs {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 20px;
+    border: none;
+    width: 200px;
+    padding: 20px;
+    background-color: #17223b;
+    color: white;
+    margin-top: 10%;
+    margin-left: 40%;
+}
