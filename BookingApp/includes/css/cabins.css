@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
+@media only screen and (max-width: 2000px) {
+    .grid-container {
+        display: grid;
+        grid-gap: 5px;
+        grid-template-columns: repeat(3, auto);
+        grid-template-rows: repeat(3, auto);
+    }
+    .col1 {
+        grid-column: 1 / 4;
+        grid-row: 1;
+    }
+    .col2 {
+        border: black 1px solid;
+        grid-column: 1;
+        grid-row: 2;
+    }
+    .col3 {
+        border: black 1px solid;
+        grid-column: 2/4;
+        grid-row: 2;
+        margin-right: 10px;
+    }
+    .col4 {
+        border: black 1px solid;
+        height: 20px;
+        grid-column: 1/ 4;
+        grid-row: 3;
+    }
+}
