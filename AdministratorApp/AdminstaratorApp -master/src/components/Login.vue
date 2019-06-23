@@ -2,7 +2,7 @@
   <div class="wrapper" >
     
     <div id="header">
-    <img id="logo" src="../assets/hg.png" >
+    <img id="logo" src="../assets/logo.png" >
     </div>
     
     <br>
