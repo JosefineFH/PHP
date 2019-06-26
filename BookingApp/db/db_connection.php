@@ -1,15 +1,15 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "123";
-$db = "bookingApp";
+$password = "";
+$db = "bookingapp";
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $db);
+$conn = mysqli_connect($servername, $username, $password, $db);
 
 // Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
-echo "Connected successfully";
-?>
+//    if (!$conn) {
+//        die("Connection failed: " . mysqli_connect_error());
+//    } else {
+//        echo "Connected successfully";
+//    }
