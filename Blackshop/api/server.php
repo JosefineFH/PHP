@@ -24,18 +24,56 @@ function returnError($message){
 }
 
 function read(){
-    echo 'test lese kun functionen';
-    //  //create query
-    //  $query = 'SELECT * FROM `test`';
+  <?php
 
-    //  //Prepare statment
+  include_once 'config/database.php';
 
-    //  $stmt = $this->conn->prepare($query);
+  $module = $_GET['module'];
 
-    //  //execute
-    //  $stmt->execute();
+  switch($module)
+  {
+      case 'readAll':
+          readAll();
+      break;
+      case 'readAll':
+          readAll();
+      break;
+      default:
+      returnError('Unknowen module: ' . $module);
+  }
 
-    //  return $stmt;
+  function returnError($message){
+      $returnValue = new stdClass();
+      $returnValue->error = $message;
+      echo json_encode($returnValue);
+      die();
+  }
+
+  function readAll (){
+      $database = new Database();
+      $conn = $database->connect();
+      $result = $conn->query('SELECT `id`, `name` FROM `test` WHERE 1');
+
+      $posts_arr = array();
+      $posts_arr['data'] = array();
+
+      while ($row = $result->fetch(PDO::FETCH_ASSOC))
+      {
+          extract($row);
+          $post_item = array(
+              'id' => $id,
+              'name' => $name
+          );
+          array_push($posts_arr['data'], $post_item);
+
+      }
+      echo json_encode($posts_arr);
+
+  }
+
+  function readAll(){
+      echo 'tester alle functionen';
+  }
 }
 
 function readAll(){
