@@ -59,6 +59,7 @@ $data = $getArticlesId->getArticlesId($articleId);
 <?php
 $updateArticle = new functions();
 
+//Update post in DB
 if (isset($_POST['update'])) {
     $articleId = intval($_GET['id']);
     $title = $_POST['title'];
@@ -68,7 +69,7 @@ if (isset($_POST['update'])) {
     $sql = $updateArticle->updateArticle($articleId, $title, $content);
 }
 
-
+//Cancel update
 if (isset($_POST['Cancel'])) {
 
     header("Location: loggedin.php");
