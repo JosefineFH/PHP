@@ -16,7 +16,7 @@ if (isset($_POST['login'])) {
 
     if ($userLogin > 0) {
         $_SESSION['user'] = $userLogin[0]['userid'];
-        
+
         // For success
         var_dump($_SESSION['user']);
         header('location:loggedin.php');
@@ -40,25 +40,30 @@ if (isset($_POST['login'])) {
 </head>
 
 <body>
-    <section>
-        <form class="login-form" action="" method="POST">
-            <input placeholder="Username" type="text" name="username" autofocus><br><br>
-            <input placeholder="Password" type="password" name="password"><br><br>
-            <button class="login-button" type="submit" name="login">Login</button>
+    <div class="container">
+        <section>
+            <h1> Login </h1>
+        </section>
+        <section>
+            <form class="login-form" action="" method="POST">
+                <input placeholder="Username" type="text" name="username" autofocus><br><br>
+                <input placeholder="Password" type="password" name="password"><br><br>
+                <button class="login-button" type="submit" name="login">Login</button>
 
-        </form>
-    </section>
-    <!-- <?php
-    if (isset($_SESSION['message'])) {
-    ?>
+            </form>
+        </section>
+        <!-- <?php
+                if (isset($_SESSION['message'])) {
+                ?>
         <div class="alert alert-info text-center">
             <?php echo $_SESSION['message']; ?>
         </div>
     <?php
 
-        unset($_SESSION['message']);
-    }
+                    unset($_SESSION['message']);
+                }
     ?> -->
+    </div>
 </body>
 <style>
 
