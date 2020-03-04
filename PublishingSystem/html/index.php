@@ -31,10 +31,7 @@ if (isset($_POST['login'])) {
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../includes/css/style.css" type="text/css">
     <title>Login</title>
 </head>
@@ -52,17 +49,6 @@ if (isset($_POST['login'])) {
 
             </form>
         </section>
-        <!-- <?php
-                if (isset($_SESSION['message'])) {
-                ?>
-        <div class="alert alert-info text-center">
-            <?php echo $_SESSION['message']; ?>
-        </div>
-    <?php
-
-                    unset($_SESSION['message']);
-                }
-    ?> -->
     </div>
 </body>
 <style>
