@@ -18,33 +18,40 @@ $data = $getArticlesId->getArticlesId($articleId);
 
 <head>
     <title>Edit Article </title>
-    <link rel="stylesheet" type="css" href="../includes/css/style.php">
+    <link rel="stylesheet" href="../includes/css/style.css" type="text/css">
 </head>
 
 <body>
-    <h1>Edit you articel</h1>
-    <section id="body">
-        <form name="insertrecord" method="post">
-            <div class="row">
-                <div class="col-md-4"><b>title</b>
-                    <input type="text" name="title" value="<?php echo $data[0]['title']; ?>" class="form-control">
+    <div class="editForm">
+        <h1>Edit you articel</h1>
+
+        <section class="editContainer">
+            <form name="insertrecord" method="post">
+
+                <div>
+                    <label>Title</label>
+                    <div>
+                        <input type="text" name="title" value="<?php echo $data[0]['title']; ?>" class="form-control">
+                    </div>
+
+                    <div>
+                        <label>Content</label> <br>
+                        <textarea name="content"><?php echo $data[0]['content']; ?></textarea>
+                    </div>
                 </div>
 
-                <div class="col-md-8"><b>content</b>
-                    <textarea class="form-control" name="content"><?php echo $data[0]['content']; ?></textarea>
-                </div>
-            </div>
-            <div class="row" style="margin-top:1%">
-                <div class="col-md-8">
-                    <input type="submit" name="update" value="Update">
-                </div>
-                <div class="col-md-8">
-                    <input type="submit" name="Cancel" value="Cancel">
-                </div>
-            </div>
-        </form>
+                <div>
+                    <div class="update">
+                        <input type="submit" name="update" value="Update">
 
-    </section>
+                        <input type="submit" name="Cancel" value="Cancel">
+                    </div>
+                </div>
+
+            </form>
+
+        </section>
+    </div>
 </body>
 
 </html>
