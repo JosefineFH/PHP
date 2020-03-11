@@ -1,0 +1,19 @@
+# ----------------------------- User table create ---------------------------- #
+
+CREATE TABLE `users` (
+ `userid` int(11) NOT NULL AUTO_INCREMENT,
+ `username` varchar(255) NOT NULL,
+ `password` varchar(20) NOT NULL,
+ `fullname` varchar(255) NOT NULL,
+ PRIMARY KEY (`userid`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1
+
+# --------------------------- article create table --------------------------- #
+
+CREATE TABLE `article` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `title` varchar(255) NOT NULL,
+ `content` varchar(500) NOT NULL,
+ `userid` int(255) NOT NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1
