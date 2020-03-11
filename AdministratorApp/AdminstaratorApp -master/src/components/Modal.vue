@@ -86,7 +86,7 @@ export default {
         };
         console.log("NewPassword: ", newPassword);
         const editPasswordUrl =
-          "https://db.hgnett.no:8080/fw2/hgoffline/php/service.php?module=editPassword";
+          "https://localhost:8080/fw2/adminstaratorApp/php/service.php?module=editPassword";
         const response = await Axios.post(editPasswordUrl, newPassword, {
           withCredentials: true
         });
@@ -101,7 +101,7 @@ export default {
       }
 
        const changeIntCodeUrl =
-          "https://db.hgnett.no:8080/fw2/hgoffline/php/service.php?module=editIntegrationCode";
+          "https://localhost:8080/fw2/adminstaratorApp/php/service.php?module=editIntegrationCode";
         const response = await Axios.post(changeIntCodeUrl, newIntegrationCode, {
           withCredentials: true
         });

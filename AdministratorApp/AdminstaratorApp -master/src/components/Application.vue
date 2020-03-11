@@ -51,7 +51,7 @@ export default {
 
     async showData() {
       const url =
-        "https://db.hgnett.no:8080/fw2/hgoffline/php/service.php?module=applicationList";
+        "https://localhost:8080/fw2/adminstaratorApp/php/service.php?module=applicationList";
 
       const response = await Axios.post(
         url,
@@ -79,7 +79,7 @@ export default {
 
     async logout() {
       const url =
-        "https://db.hgnett.no/fw2/hgoffline/php/service.php?module=logout";
+        "https://localhost:8080/fw2/adminstaratorApp/php/service.php?module=logout";
       const response = await Axios.post(url, { withCredentials: true });
       this.$router.push({ path: "./" });
     }

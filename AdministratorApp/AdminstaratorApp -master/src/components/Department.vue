@@ -51,7 +51,7 @@ export default {
     },
 
     async showData() {
-      const url = "https://db.hgnett.no:8080/fw2/hgoffline/php/service.php?module=departmentListFromApplication";
+      const url = "https://localhost.no:8080/fw2/adminstaratorApp/php/service.php?module=departmentListFromApplication";
       
       const param = {applicationId:  this.applicationId}; 
       const response = await Axios.post(url, param, {withCredentials: true});
@@ -66,7 +66,7 @@ export default {
     },
 
     async logout(){
-    const url = "https://db.hgnett.no:8080/fw2/hgoffline/php/service.php?module=logout";
+    const url = "https://localhost:8080/fw2/adminstaratorApp/php/service.php?module=logout";
         const response = await Axios.post(url, department.id, {withCredentials: true });
         this.$router.push({path:'./'});
     },

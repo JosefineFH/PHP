@@ -47,7 +47,7 @@ export default {
       };
      
       try {
-        const url = "https://db.hgnett.no:8080/fw2/hgoffline/php/service.php?module=login";
+        const url = "https://localhost:8080/fw2/adminstaratorApp/php/service.php?module=login";
         const response = await Axios.post(url,inputValues, {withCredentials: true});
        
                 this.message = response.data.success;

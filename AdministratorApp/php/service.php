@@ -96,9 +96,9 @@ function login(){
         $id = $DB->getField("id");
         
         
-    $DB->prepareAndExecute("SELECT department_id,  application_id  FROM hgoffline.usr_dep AS ud WHERE ud.id = $1", $id);
+    $DB->prepareAndExecute("SELECT department_id,  application_id  FROM adminstaratorApp.usr_dep AS ud WHERE ud.id = $1", $id);
      // en SELECT COUNT som teller antall apper
-    $countApps->prepareAndExecute("SELECT COUNT(application_id) as c FROM hgoffline.usr_dep WHERE id = $1", $id);    
+    $countApps->prepareAndExecute("SELECT COUNT(application_id) as c FROM adminstaratorApp.usr_dep WHERE id = $1", $id);    
     
 
     if ($DB->numRows() <= 0) {
@@ -148,8 +148,8 @@ function departmentListFromApplication(){
 
 
     $sql =  " SELECT d.name, d.id, d.application_id " .
-            " FROM hgoffline.department d " . 
-            " JOIN hgoffline.usr_dep ud ON (d.id = ud.department_id OR ud.department_id = -1) AND d.application_id = ud.application_id " .
+            " FROM adminstaratorApp.department d " . 
+            " JOIN adminstaratorApp.usr_dep ud ON (d.id = ud.department_id OR ud.department_id = -1) AND d.application_id = ud.application_id " .
             " WHERE ud.id = $1 AND ud.application_id = $2 ";
 
     $DB->prepareAndExecute($sql, $params);
@@ -178,8 +178,8 @@ function applicationList(){
     
     if ($_SESSION['counted_apps'] > 1) {
         $usersAppIdsSQL = "SELECT ud.application_id, app.id, app.name" .
-        " FROM hgoffline.usr_dep ud" .
-        " INNER JOIN hgoffline.application app ON app.id = ud.application_id" .
+        " FROM adminstaratorApp.usr_dep ud" .
+        " INNER JOIN adminstaratorApp.application app ON app.id = ud.application_id" .
         " WHERE ud.id=$1";
         $DB->prepareAndExecute($usersAppIdsSQL, $session_userId);           
         
@@ -213,7 +213,7 @@ function user(){
    
     $sql =  "SELECT visual, username, code, activated, id, application_id, department, " .
             "integrationcode, deleted, password "  .  
-            "FROM hgoffline.user hu " . 
+            "FROM adminstaratorApp.user hu " . 
             "WHERE application_id=$1 AND department=$2 AND deleted = 0";
     $params =[$applicationId]; 
  
@@ -258,7 +258,7 @@ function editPassword(){
     die();
     }
     else{
-    $sql =  "UPDATE hgoffline.user SET password=$1 WHERE id=$2 AND application_id =$3"; 
+    $sql =  "UPDATE adminstaratorApp.user SET password=$1 WHERE id=$2 AND application_id =$3"; 
     $params =[$newPassword, $selectedUser, $_SESSION['app_id']];
     
     $DB->prepareAndExecute($sql, $params);
@@ -268,7 +268,7 @@ function editPassword(){
 function editIntegrationCode(){
     $jsonData = json_decode(file_get_contents("php://input"));
     $DB = new DB_Sql();
-    $sql = "UPDATE hgoffline.user SET integrationcode=$1 WHERE id=$2";
+    $sql = "UPDATE adminstaratorApp.user SET integrationcode=$1 WHERE id=$2";
     $params = [
         $newIntegrationCode =$jsonData->newIntegrationCode,
         $selectedUser = $jsonData->selectedUser
@@ -287,20 +287,20 @@ function editCode(){
     $DB = new DB_Sql();
 
 
-$getAppId = "SELECT application_id FROM hgoffline.user WHERE id=$1";
+$getAppId = "SELECT application_id FROM adminstaratorApp.user WHERE id=$1";
 $DB->PrepareAndExecute($getAppId, [$selectedUser]);
 $SelectedUserApp = $DB->getField("application_id");
 
     $count=0;
 	$res="";
-    $strSQL="SELECT prefix FROM hgoffline.application WHERE id=$1";
+    $strSQL="SELECT prefix FROM adminstaratorApp.application WHERE id=$1";
     $DB->PrepareAndExecute($strSQL, [$SelectedUserApp]);
     
     $prefix=strtolower($DB->GetField("prefix"));
 	while($res=="")
 	{
 		$test=$prefix.rand(1000,9999);
-		$strSQL="SELECT count(*) AS c FROM hgoffline.user ";
+		$strSQL="SELECT count(*) AS c FROM adminstaratorApp.user ";
 		$strSQL.="WHERE deleted=0 AND application_id=$1 AND lower(code)=$2";
         $DB->PrepareAndExecute($strSQL, [$SelectedUserApp,$test]);
         
@@ -319,7 +319,7 @@ $SelectedUserApp = $DB->getField("application_id");
    
     
     
-  $DB->prepareAndExecute("UPDATE hgoffline.user SET code=$1 WHERE id=$2 AND activated=1", $params);
+  $DB->prepareAndExecute("UPDATE adminstaratorApp.user SET code=$1 WHERE id=$2 AND activated=1", $params);
   $code = $res;
  
   echo json_encode($code);
@@ -335,7 +335,7 @@ function newUser(){
     $visual = $jsonData->visualName;
     $i=0;
 
-    $sqlSelect = "SELECT visual FROM hgoffline.user WHERE visual=$1";
+    $sqlSelect = "SELECT visual FROM adminstaratorApp.user WHERE visual=$1";
     $DB->prepareAndExecute($sqlSelect,$visual);
 
     while($DB->NumRows()>0)
@@ -347,7 +347,7 @@ function newUser(){
     $username = $jsonData->userName;
     $i=0;
     
-    $sqlSelect1 = "SELECT username FROM hgoffline.user WHERE username=$1";
+    $sqlSelect1 = "SELECT username FROM adminstaratorApp.user WHERE username=$1";
     $DB->prepareAndExecute($sqlSelect1,$username);
     
     while($DB->NumRows()>0)
@@ -355,7 +355,7 @@ function newUser(){
     
     if ($i>0)
         $username.=$i;
-    $sql = "INSERT INTO hgoffline.user (code, visual, application_id, department, integrationcode, username, password) ". 
+    $sql = "INSERT INTO adminstaratorApp.user (code, visual, application_id, department, integrationcode, username, password) ". 
             "VALUES ($1, $2, $3, $4, $5, $6, $7)";
             $params =[
                 $code = '',
@@ -385,7 +385,7 @@ function deActivate(){
 
     $params =[$deActivateUser,$selectedUser ];
    
-    $DB->prepareAndExecute("UPDATE hgoffline.user SET deleted = $1 WHERE id =$2", $params);
+    $DB->prepareAndExecute("UPDATE adminstaratorApp.user SET deleted = $1 WHERE id =$2", $params);
 }
 
 /*

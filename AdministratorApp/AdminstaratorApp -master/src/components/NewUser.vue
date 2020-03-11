@@ -78,7 +78,7 @@
             applicationId : this.applicationId
           }
            console.log("this.applicationId i NEWuser: ", this.applicationId);
-          const url = "https://db.hgnett.no:8080/fw2/hgoffline/php/service.php?module=newUser";
+          const url = "https://localhost:8080/fw2/adminstaratorApp/php/service.php?module=newUser";
           const response = await Axios.post(url, newUser, {withCredentials: true}); 
           
       }

@@ -135,7 +135,7 @@ export default {
     },
     async getData() {
       const url =
-        "https://db.hgnett.no:8080/fw2/hgoffline/php/service.php?module=user";
+        "https://localhost:8080/fw2/adminstaratorApp/php/service.php?module=user";
      
 
       const response = await Axios.post(
@@ -205,7 +205,7 @@ export default {
           };
          
           const deActivateUserUrl =
-            "https://db.hgnett.no:8080/fw2/hgoffline/php/service.php?module=deActivate";
+            "https://localhost:8080/fw2/adminstaratorApp/php/service.php?module=deActivate";
           const response = await Axios.post(deActivateUserUrl, deActivate, {
             withCredentials: true
           });
@@ -221,7 +221,7 @@ export default {
         selectedUserId: user.id
       };
       const editUserUrl =
-        "https://db.hgnett.no:8080/fw2/hgoffline/php/service.php?module=editCode";
+        "https://localhost:8080/fw2/adminstaratorApp/php/service.php?module=editCode";
 
       const response = await Axios.post(editUserUrl, selectedUserId, {
         withCredentials: true
@@ -232,7 +232,7 @@ export default {
 
     async logout() {
       const url =
-        "https://db.hgnett.no:8080/fw2/hgoffline/php/service.php?module=logout";
+        "https://localhost:8080/fw2/adminstaratorApp/php/service.php?module=logout";
       const response = await Axios.post(url, user.id, {
         withCredentials: true
       });
